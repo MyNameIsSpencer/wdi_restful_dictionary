@@ -4,7 +4,14 @@
   <%= link_to 'New Entry', new_entry_path %>
 </p>
 
+
+
 <% @entries.each do |this_entry| %>
+<h2> <%= link_to this_entry.word, entry_path(this_entry)%></h2>
+<h4>Word: <%= this_entry.word %> </h4>
+<h4>Definition: <%= this_entry.definition %> </h4>
+<h4>Language: <%= this_entry.language %></h4>
 <h1>  <%= this_entry.id %></h1>
+
 
 <% end %>

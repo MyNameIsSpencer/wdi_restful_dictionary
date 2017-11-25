@@ -1,1 +1,6 @@
 <p>I hope this was the Entry you were looking for: <%= params[:id]%>, if it's not then that's no good</p>
+
+
+<p><%= link_to "Edit", edit_entry_path(@entry)%></p>
+|
+<p><%= link_to "Delete", entry_path(@entry), method: :delete, data: {confirm: "Are you sure you want to destroy this contact? '#{@entry.word}' Cannot undo!"} %></p>

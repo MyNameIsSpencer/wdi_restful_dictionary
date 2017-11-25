@@ -25,21 +25,19 @@ class EntriesController < ApplicationController
 
   def edit
     @entry = Entry.find(params[:id])
-    redirect_to entries_path
+    
   end
 
 
   def update
     @entry = Entry.find(params[:id])
-    # @entry.word = params[:entry][:word]
-    # @entry.definition = params[:entry][:definition]
-    # @entry.language = params[:entry][:language]
-    # @entry.location = params[:entry][:city]
-
+    @entry.word = params[:entry][:word]
+    @entry.definition = params[:entry][:definition]
+    @entry.language = params[:entry][:language]
     if @entry.save
-      redirect_to event_url(params[:id])
-    # else
-    #   redirect_to event_url(params[:id])
+      redirect_to entry_url
+    else
+      redirect_to entry_url
     end
   end
 

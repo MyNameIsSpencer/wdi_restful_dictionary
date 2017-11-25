@@ -1,1 +1,24 @@
 <p>I'm here to change an entree</p>
+
+
+
+<%= form_for @entry do |form_helper| %>
+  <p>
+    <%= form_helper.label :word %>
+    <%= form_helper.text_field :word %>
+  </p>
+
+  <p>
+    <%= form_helper.label :language %>
+    <%= form_helper.text_field :language %>
+  </p>
+
+  <p>
+    <%= form_helper.label :definition %>
+    <%= form_helper.text_field :definition %>
+  </p>
+
+  <p>
+    <%= form_helper.submit %>
+  </p>
+<% end  %>

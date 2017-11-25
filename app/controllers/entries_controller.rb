@@ -1,20 +1,26 @@
 class EntriesController < ApplicationController
   def index
-    render :index
-    # @entries = Entry.all
+    @entries = Entry.all
   end
 
   def show
     @entry = Entry.find(params[:id])
   end
 
-
   def new
-    render :new
+    @entry = Entry.new
   end
 
-  def created
-    redirect_to entries_url
+  def create
+    @entry = Entry.new
+    @entry.word = params[:entry][:word]
+    @entry.definition = params[:entry][:defintion]
+    @entry.language = params[:entry][:language]
+    if @entry.save
+      redirect_to entries_url
+    else
+      redirect_to entries_url
+    end
   end
 
   def edit
@@ -24,7 +30,7 @@ class EntriesController < ApplicationController
 
 
   def update
-    @entry = Event.find(params[:id])
+    @entry = Entry.find(params[:id])
     # @entry.word = params[:entry][:word]
     # @entry.definition = params[:entry][:definition]
     # @entry.language = params[:entry][:language]
